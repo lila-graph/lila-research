@@ -1,0 +1,41 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets
+.env
+
+# Data and Draft files
+/data/*
+!/data/.gitkeep
+/draft/*
+!/draft/.gitkeep
+
+# Generated output files
+/outputs/
+
+# Log files and directories
+/logs/
+*.log
+
+# Diagram exports (optional tracking)
+# Uncomment the line below if you don't want to track exported diagram images
+# /diagrams/exports/*.png
+# /diagrams/exports/*.svg
+
+# IDE configuration
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# ra_* files
+ra_*/
