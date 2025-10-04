@@ -2,8 +2,6 @@
 
 A complete 3-stage pipeline for evaluating and benchmarking retrieval strategies on technical and academic documents. Built for researchers and engineers who need objective metrics to compare RAG approaches.
 
-**For technical deep-dives:** See the [full technical guide](docs/blog/langchain_eval_foundations_e2e_blog.md) or explore [DeepWiki documentation](https://deepwiki.com/donbr/rag-eval-foundations).
-
 ## 🔬 Current Configuration: Theory of Mind Research
 
 This toolkit is currently configured to evaluate retrieval strategies on **Theory of Mind** research documents - specifically technical documentation about the Lila system architecture for persistent AI personas with psychological realism.
@@ -116,10 +114,6 @@ python src/langchain_eval_experiments.py
 ## 🌉 Next Steps: Deepen Your Understanding
 
 Now that you've got the pipeline running, here's where to go next:
-
-### 📖 **For Technical Deep Dives**
-- **[DeepWiki Documentation](https://deepwiki.com/donbr/rag-eval-foundations)**: Interactive architecture diagrams, detailed retrieval strategy analysis, and performance benchmarks
-- **[Technical Blog Post](docs/blog/langchain_eval_foundations_e2e_blog.md)**: Complete walkthrough of the implementation with code examples
 
 ### 🧪 **For Hands-On Exploration**
 - **[Validation Scripts](validation/README.md)**: Interactive tools to explore your data and compare strategies
@@ -359,6 +353,7 @@ find . -type d -name __pycache__ -exec rm -rf {} +
 ## ✅ Success Indicators
 
 ### Pipeline Completed Successfully When:
+
 - ✅ Scripts run without errors through all 3 stages
 - ✅ Phoenix UI at `http://localhost:6006` shows comprehensive traces
 - ✅ PostgreSQL contains vector stores with embedded documents
@@ -366,14 +361,13 @@ find . -type d -name __pycache__ -exec rm -rf {} +
 - ✅ Experiment results show comparative metrics across all 6 strategies
 
 ### What You've Built:
+
 - ✅ **Complete 3-stage evaluation pipeline** from infrastructure to automated metrics
 - ✅ **6 retrieval strategies** implemented and benchmarked
 - ✅ **RAGAS golden test sets** for consistent, repeatable evaluation
 - ✅ **Automated scoring** with QA correctness and relevance metrics
 - ✅ **Phoenix observability** tracking every operation and experiment
 - ✅ **Production-ready foundation** adaptable to any research domain
-
-🔍 **Deep dive into retrieval strategies:** See [DeepWiki's technical comparison](https://deepwiki.com/donbr/rag-eval-foundations) for detailed performance analysis.
 
 ### Complete Toolkit Components:
 - **Stage 1**: Infrastructure setup and strategy implementation
@@ -407,8 +401,6 @@ Now that you have a working evaluation pipeline:
    - Understand trade-offs between speed and accuracy
    - Experiment with ensemble weights
    - Add custom retrieval implementations
-
-📖 **Learn more**: [DeepWiki documentation](https://deepwiki.com/donbr/rag-eval-foundations) provides interactive exploration of retrieval strategies and performance analysis.
 
 ---
 
@@ -480,17 +472,6 @@ research_domain: str = "theory_of_mind"
 
 ## 📚 Additional Resources
 
-### 📍 Documentation Map
-
-Navigate our comprehensive documentation based on your needs:
-
-| Document | Purpose | Best For |
-|----------|---------|----------|
-| **[This README](README.md)** | Quick start, setup, troubleshooting | Getting started, practical usage |
-| **[Technical Journey](docs/technical/langchain_eval_learning_journey.md)** | Detailed 3-stage progression guide | Understanding the complete pipeline |
-| **[Blog Post](docs/blog/langchain_eval_foundations_e2e_blog.md)** | Deep dive into Stage 1 implementation | Learning retrieval strategies in depth |
-| **[DeepWiki](https://deepwiki.com/donbr/rag-eval-foundations)** | Interactive Q&A and exploration | Quick answers, architecture insights |
-
 ### Understanding the Code
 - **Main Scripts:**
   - `langchain_eval_foundations_e2e.py` - Stage 1: Foundation & infrastructure
@@ -498,18 +479,12 @@ Navigate our comprehensive documentation based on your needs:
   - `langchain_eval_experiments.py` - Stage 3: Automated evaluation & metrics
   - `data_loader.py` - Utilities for loading data
 
-### Architecture Diagrams
-- **Location:** `diagrams/` folder contains Excalidraw source files
-- **Viewing:** Use VS Code Excalidraw extension or [excalidraw.com](https://excalidraw.com/)
-- **Exports:** PNG/SVG versions in `diagrams/exports/` (when available)
-- **Current Status:** Work in progress - see `diagrams/README.md` for details
-- **Interactive Diagrams:** View system architecture and data flow diagrams on [DeepWiki](https://deepwiki.com/donbr/rag-eval-foundations)
-
 ## 🔍 Validation & Analysis Tools
 
 The `validation/` directory contains interactive scripts for exploring and validating the RAG system components.
 
 ### Prerequisites for Validation Scripts
+
 ```bash
 # 1. Ensure services are running
 docker-compose up -d
@@ -520,9 +495,8 @@ python claude_code_scripts/run_rag_evaluation_pipeline.py
 
 ### Available Validation Scripts
 
-💡 **Tip**: These scripts provide hands-on exploration of concepts covered in the [DeepWiki technical documentation](https://deepwiki.com/donbr/rag-eval-foundations).
-
 #### 1. PostgreSQL Data Analysis
+
 ```bash
 python validation/postgres_data_analysis.py
 ```
@@ -532,7 +506,8 @@ python validation/postgres_data_analysis.py
 - Generates PCA visualization of embeddings
 - **Outputs:** Creates 3 PNG charts in `outputs/charts/postgres_analysis/`
 
-#### 2. Phoenix Telemetry Validation  
+#### 2. Phoenix Telemetry Validation
+
 ```bash
 python validation/validate_telemetry.py
 ```
@@ -543,6 +518,7 @@ python validation/validate_telemetry.py
 - **View traces:** http://localhost:6006
 
 #### 3. Interactive Retrieval Strategy Comparison
+
 ```bash
 python validation/retrieval_strategy_comparison.py  
 ```
@@ -553,6 +529,7 @@ python validation/retrieval_strategy_comparison.py
 - **Outputs:** Performance visualization in `outputs/charts/retrieval_analysis/`
 
 ### Validation Script Features
+
 - ✅ **Phoenix Integration:** All scripts include OpenTelemetry tracing
 - 📊 **Visualization:** Generates charts and performance metrics  
 - 🔧 **Interactive:** Real-time comparison and analysis capabilities
@@ -561,23 +538,20 @@ python validation/retrieval_strategy_comparison.py
 **📖 Detailed Instructions:** See [`validation/README.md`](validation/README.md) for comprehensive usage guide and troubleshooting.
 
 ### Cost Estimates
+
 - **OpenAI:** ~$0.50-$2.00 per full run (depending on data size)
 - **Cohere:** ~$0.10-$0.50 for reranking
 - **Total:** Budget $5 for experimentation
 
 ### Performance Benchmarks
+
 - Data loading: 30-60 seconds
 - Embedding generation: 1-2 minutes for ~100 reviews
 - Retrieval comparison: 30-60 seconds
 - Total runtime: 2-5 minutes
 
-📈 **For detailed performance analysis**: Check out [DeepWiki's performance insights](https://deepwiki.com/donbr/rag-eval-foundations) including:
-- Strategy-by-strategy latency comparisons
-- Token usage optimization techniques
-- Scaling recommendations for larger datasets
-- Cost-performance trade-offs for each retrieval method
-
 ### Glossary
+
 - **RAG**: Retrieval-Augmented Generation - enhancing LLM responses with retrieved context
 - **Embeddings**: Vector representations of text for semantic search
 - **BM25**: Best Matching 25 - a keyword-based ranking algorithm
@@ -585,8 +559,6 @@ python validation/retrieval_strategy_comparison.py
 - **Phoenix**: Open-source LLM observability platform by Arize
 - **pgvector**: PostgreSQL extension for vector similarity search
 - **RAGAS**: Framework for evaluating RAG pipelines
-
-🔍 **Want to understand these concepts in depth?** Visit [DeepWiki](https://deepwiki.com/donbr/rag-eval-foundations) for interactive explanations and examples.
 
 ---
 
@@ -602,19 +574,3 @@ python validation/retrieval_strategy_comparison.py
 
 ## 📚 Appendix: Useful Links
 - **[uv Documentation](https://docs.astral.sh/uv/)**: Learn more about the fast Python package and project manager used in this guide.
-
----
-
-## 🌐 DeepWiki: Your Interactive Documentation Portal
-
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/donbr/rag-eval-foundations)
-
-**DeepWiki provides an AI-powered interface to explore this project in depth.** Ask questions, get instant answers, and discover:
-
-- 🏗️ **System Architecture**: Interactive diagrams showing how all components connect
-- 📊 **Performance Analysis**: Detailed benchmarks comparing all 6 retrieval strategies
-- 🔧 **Configuration Deep Dives**: Advanced settings and optimization techniques
-- 💡 **Implementation Insights**: Code explanations and design decisions
-- 🚀 **Scaling Strategies**: How to adapt this foundation for production use
-
-Perfect for when you need quick answers or want to explore specific technical aspects without diving through all the code.

@@ -193,8 +193,8 @@ docker run -it --rm --name phoenix-container \
 
 ### Core Components
 
-1. **Data Pipeline**: 
-   - **Primary**: PDF document ingestion from financial aid sources (4 documents, ~269 pages)
+1. **Data Pipeline**:
+   - **Primary**: PDF and Markdown document ingestion from Theory of Mind research sources
    - **Secondary**: CSV ingestion from John Wick movie reviews (optional, disabled by default)
    - Async document processing with metadata enrichment
    - PostgreSQL/pgvector storage with 1536-dimension embeddings
@@ -358,12 +358,13 @@ These commands provide quick verification that all components are working correc
 ## Development Notes
 
 ### Data Structure
-**Primary Data (PDF Documents)**:
-- Financial aid PDFs stored in `data/` directory:
-  - `Academic_Calenders_Cost_of_Attendance_and_Packaging.pdf`
-  - `Applications_and_Verification_Guide.pdf`
-  - `The_Direct_Loan_Program.pdf`
-  - `The_Federal_Pell_Grant_Program.pdf`
+**Primary Data (Theory of Mind Research)**:
+- Research documents stored in `data/` directory:
+  - `theory-of-mind-ai-agents.pdf` - Academic research on AI agent cognition
+  - `Lila MVP Design and Development Plan.md` - System design specifications
+  - `Lila System_ Core Concepts Explained.md` - Core architectural concepts
+  - `Lila System Temporal Architecture Research.md` - Temporal design patterns
+  - `Analyzing the Lila Graph Schema.md` - Graph-based memory systems
 - Document metadata: `document_name`, `source_type`, `last_accessed_at`
 - Tables: `mixed_baseline_documents` and `mixed_semantic_documents`
 
@@ -656,9 +657,9 @@ golden_testset_size: int = 10  # Number of RAGAS test questions
    - For mixed: Set multiple to `True`
 
 **Example Test Queries by Domain**:
-- **Theory of Mind** (current): "How does the Lila system implement Theory of Mind?", "What is the temporal architecture pattern?"
-- **Financial Aid**: "What are Pell Grant eligibility requirements?", "How does the Direct Loan Program work?"
-- **John Wick** (legacy): "What makes John Wick so effective?", "How does the Continental Hotel operate?"
+- **Theory of Mind** (current): "How does the Lila system implement Theory of Mind?", "What is the temporal architecture pattern?", "Explain the graph-based memory system in Lila."
+- **Medical Research** (example): "What are the contraindications for this treatment?", "Describe the mechanism of action."
+- **Legal Analysis** (example): "What precedent governs this case?", "How does the statute define liability?"
 
 **Golden Test Set Size**:
 - Via CLI: `--testset-size 5` (orchestration script)
